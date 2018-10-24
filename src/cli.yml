@@ -1,0 +1,15 @@
+name: anyrun
+author: Pengfei Zhang <zpfalpc23@gmail.com>
+about: Open Container Initiative runtime for Nianjia 
+args:
+    - verbose:
+        short: v
+        multiple: true
+        help: Sets the level of verbosity
+    - vm:
+        long: vm
+        takes_value: false
+        help: Execute command for vm configuration
+subcommands:
+    - spec:
+        about: Create a new specification file
