@@ -9,10 +9,12 @@ use std::process;
 use clap::{Arg, SubCommand, App};
 mod spec;
 mod platform;
+
+use self::platform::*;
 // use spec;
 
 #[derive(Debug)]
-enum Platform {
+pub enum Platform {
     Linux,
     Solaris,
     Windows,
@@ -41,10 +43,8 @@ fn main() {
         _ => Platform::VM
     };
 
-    println!("{:?}", platform);
-
     let ret = match matches.subcommand_name() {
-        Some("spec") => spec::run(),
+        Some("spec") => spec::run(platform),
         _ => {
             1
         }
